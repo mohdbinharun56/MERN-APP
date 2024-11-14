@@ -44,5 +44,15 @@ In the server method has two parameter first one is the selected path and anothe
 - To print Hello World!
   app.get('/',(req,res)=> res.send("Hello World!");
 ```
+### Test with a HTTP server method POST with BODY parser using POSTMAN HTTP API SERVER
+<ol>
+  <li>Initialized Middleware: app.use(express.json({extended:false}));</li>
+  <li>We don't have to install body parser because it's build in into Middleware</li> 
+  <li>Function of express. It's parses incoming json payload</li> 
+</ol>
 
-
+```bash
+app.post('/add',(req,res)=>{
+  res.send(req.body.name); // only send a name property from the body
+}
+```
