@@ -20,6 +20,8 @@ const articlesInfo = {
 // initialize middleware
 app.use(express.json({extended:false}));
 
+// Aadding using POST Method
+// Adding Comments 
 app.post('/articles/:articlename/add-comment',(req,res)=>{
     const {username,texts} = req.body || {};
     // const username = req.body.username;
@@ -28,6 +30,13 @@ app.post('/articles/:articlename/add-comment',(req,res)=>{
 
     articlesInfo[articlename].comments.push({username,texts});
     res.status(200).send(articlesInfo[articlename]);
+});
+
+
+// get all comments which are adding into the articlesInfo object in all properties comments.
+app.get('/articles',(req,res)=>{
+    // const {learnReact,learnNode,myThoughtsOnLearningReact} = articlesInfo;
+    res.status(200).send(articlesInfo);
 });
 
 
