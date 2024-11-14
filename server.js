@@ -3,8 +3,32 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+// Aadding using POST Method
+// Adding Comments 
+const articlesInfo = {
+    learnReact: {
+        comments: []
+    },
+    learnNode: {
+        comments:[]
+    },
+    myThoughtsOnLearningReact: {
+        comments:[]
+    }
+};
+
 // initialize middleware
 app.use(express.json({extended:false}));
+
+app.post('/articles/:articlename/add-comment',(req,res)=>{
+    const {username,texts} = req.body || {};
+    // const username = req.body.username;
+    // const texts = req.body.texts;
+    const articlename = req.params.articlename;
+
+    articlesInfo[articlename].comments.push({username,texts});
+    res.status(200).send(articlesInfo[articlename]);
+});
 
 
 // Dynamic Routing Parameter
