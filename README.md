@@ -54,5 +54,16 @@ In the server method has two parameter first one is the selected path and anothe
 ```bash
 app.post('/add',(req,res)=>{
   res.send(req.body.name); // only send a name property from the body
-}
+});
 ```
+
+### Route Parameter
+Params parameter will contain the url variable value and the property name also be exact variable name like here used 'id' as dynamic route.
+url: http://localhost:3000/user/3
+
+```bash
+app.get('/user/:id',(req,res)=>{
+  res.send(`This is user: ${req.params.id}`);
+});
+```
+This route will used for while you need to pass a specific information of an identity or dynamically routes for each.
