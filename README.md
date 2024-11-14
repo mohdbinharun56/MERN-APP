@@ -67,3 +67,32 @@ app.get('/user/:id',(req,res)=>{
 });
 ```
 This route will used for while you need to pass a specific information of an identity or dynamically routes for each.
+
+### Initialize an Object
+```bash
+const articlesInfo = {
+    learnReact: {
+        comments: []
+    },
+    learnNode: {
+        comments:[]
+    },
+    myThoughtsOnLearningReact: {
+        comments:[]
+    }
+};
+```
+### Add Comments into the Object properties
+```bash
+// Aadding using POST Method
+// Adding Comments 
+app.post('/articles/:articlename/add-comment',(req,res)=>{
+    const {username,texts} = req.body || {};
+    // const username = req.body.username;
+    // const texts = req.body.texts;
+    const articlename = req.params.articlename;
+
+    articlesInfo[articlename].comments.push({username,texts});
+    res.status(200).send(articlesInfo[articlename]);
+});
+```
