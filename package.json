@@ -1,0 +1,19 @@
+{
+  "name": "mernapp",
+  "version": "1.0.0",
+  "description": "MERN App",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon"
+  },
+  "keywords": [],
+  "author": "Mohammad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7"
+  }
+}
