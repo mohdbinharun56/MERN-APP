@@ -96,3 +96,12 @@ app.post('/articles/:articlename/add-comment',(req,res)=>{
     res.status(200).send(articlesInfo[articlename]);
 });
 ```
+
+### To Fetch ArticlesInfo
+- get all comments which are adding into the articlesInfo object in all properties comments.
+```bash
+app.get('/articles',(req,res)=>{
+    // const {learnReact,learnNode,myThoughtsOnLearningReact} = articlesInfo;
+    res.status(200).send(articlesInfo);
+});
+```
